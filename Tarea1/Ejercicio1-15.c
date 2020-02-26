@@ -4,8 +4,8 @@ int degree(int x);
 int main()
 {
     int i;
-    for (i = 0; i < 300; i = i+20)
-        printf("%d\t%d \n", i, degree(i));
+    for (i = 0; i <= 300; i = i+20)
+        printf("%d\t%d\n", i, degree(i));
     return 0;
 }
 
