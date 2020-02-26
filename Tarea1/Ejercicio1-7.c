@@ -1,5 +1,5 @@
 #include <stdio.h>
-/* copy input to output; 1st version */
+/* Verifica el estado del EOF */
 void main()
 {
     int c;
