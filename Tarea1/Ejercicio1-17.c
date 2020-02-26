@@ -15,7 +15,7 @@ void main(){
  			copy(longest, line);
  		}
  	if (max >= 80){
-		printf("%s\n", "La linea mas larga es:")
+		printf("%s\n", "La linea mas larga es:");
  		printf("%s", longest);
 	}
 	else{
