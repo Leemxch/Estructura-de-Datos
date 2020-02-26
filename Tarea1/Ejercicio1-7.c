@@ -6,6 +6,6 @@ void main()
     c = getchar();
     while (c != EOF) {
         c = getchar();
-        printf("%d", EOF);
+        printf("%d\n", EOF);
     }
 }
