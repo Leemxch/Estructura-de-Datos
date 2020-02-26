@@ -1,3 +1,4 @@
+#include <stdio.h>
 void main(){
 	int c, characters[94][2], dec;
 	for (int i=0; i<94;i++){
