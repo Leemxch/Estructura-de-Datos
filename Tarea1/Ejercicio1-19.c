@@ -1,10 +1,4 @@
 #include<stdio.h>
-char reverse(char palabra[], int num){
-	for(int i=0; i<num; i++){
-		printf("%c", palabra[num-1-i]);
-	}
-	
-}
 void main() {
 	char palabra[100]="", c;
 	int count=0;
@@ -19,4 +13,10 @@ void main() {
             		count++;
         	}
     	}
+}
+char reverse(char palabra[], int num){
+	for(int i=0; i<num; i++){
+		printf("%c", palabra[num-1-i]);
+	}
+	
 }
