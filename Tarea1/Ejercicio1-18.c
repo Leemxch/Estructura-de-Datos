@@ -1,5 +1,5 @@
 #include <stdio.h>
-void main(void) {
+void main() {
 	char c;
 	int word=0, blank=0, tab=0;
 	while ((c = getchar()) != EOF) {
