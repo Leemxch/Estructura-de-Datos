@@ -8,10 +8,10 @@ void main()
     upper = 300; /* upper limit */
     step = 20; /* step size */
     fahr = lower;
-    printf("\tFahrenheit-Celsius\n");
+    printf("Fahrenheit\t\tCelsius\n");
     while (fahr <= upper) {
         celsius = 5 * (fahr - 32) / 9;
-        printf("%d\t%d\n", fahr, celsius);
+        printf("%d\t\t%d\n", fahr, celsius);
         fahr = fahr + step;
     }
 }
