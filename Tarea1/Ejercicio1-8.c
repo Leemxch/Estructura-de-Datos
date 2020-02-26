@@ -4,9 +4,12 @@ void main(){
     int input, count;
     count = 0;
     while ((input = getchar()) != EOF) {
-        if (input == '\n')
+        if (input == '\n'){
             ++count;
-        else(++count);
+        }
+        else{
+            (++count);
+        }
         printf("%d\n", count);
     }      
 }
