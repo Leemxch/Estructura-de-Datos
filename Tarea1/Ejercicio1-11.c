@@ -7,13 +7,13 @@ void main(){
 
     before = 1;
     while ((c = getchar()) != EOF) {
-  		if (c == ' ' || c == '\t' || c == '\n') {
+  	if (c == ' ' || c == '\t' || c == '\n') {
        		if (before == 0) {
          		before = 1;
-				numWords++;
-			}
+			numWords++;
+		}
         } 
-		else {
+	else {
     		before = 0;
     	}
     }
@@ -21,3 +21,4 @@ void main(){
         numWords++;
     }
 	printf("\nEl numero de palabras es: %d \n", numWords);
+}
