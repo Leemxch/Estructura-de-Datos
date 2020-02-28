@@ -5,7 +5,7 @@ void lower(char string1[100]){
 	char string2[100];
 	while (string1[i] != '\0'){
 		we = string1[i];
-		if (string1[i] <= 90 && string1[i]<=65){
+		if (string1[i] <= 90 && string1[i]>=65){
 			tem = string1[i]+32;
 		}
 		string2[i]=tem;
@@ -17,5 +17,5 @@ void lower(char string1[100]){
 }
 
 void main(){
-	lower("AAAa\0");
+	lower("AAAaBZz\0");
 }
