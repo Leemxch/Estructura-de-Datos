@@ -1,10 +1,4 @@
 #include <stdio.h>
-void main() {
-    int a[] = { 1,2,3,4,5 };
-    printf("%d\n", binsearch(1, a, 6));
-    printf("%d\n", binsearch(1, a, 2));
-    printf("%d\n", binsearch(1, a, 0));
-}
 /* binsearch: find x in v[0] <= v[1] <= ... <= v[n-1] */
 int binsearch(int x, int v[], int n) {
     int low, high, mid;
@@ -25,4 +19,10 @@ int binsearch(int x, int v[], int n) {
         }
     }
    return -1; /* no match */
+}
+void main() {
+    int a[] = { 1,2,3,4,5 };
+    printf("%d\n", binsearch(1, a, 6));
+    printf("%d\n", binsearch(1, a, 2));
+    printf("%d\n", binsearch(1, a, 0));
 }
