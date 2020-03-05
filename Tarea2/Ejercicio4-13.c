@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 void reverse(char s[],char res[],int count,int actual){
     if (count>=0){
 		res[actual]=s[count];
