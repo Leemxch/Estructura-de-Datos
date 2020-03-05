@@ -8,26 +8,36 @@ void reverse(char s[]){
         s[j] = c;
     }
 }
-void itob(int n, char s[], int b) {
-    int i=0, sign;
+char* extend(char s[], int lim,int ini){
+	int i;
+	for (i= ini;i<=lim;i++){
+		s[i] = '~';
+	}
+	return s;
+}
+void itoa(int n, char s[],int lim) {
+    int i, sign, count=0;
     if ((sign = n) < 0) {
-            n = -n;
-    }
+		n = -n;
+	}
+	i = 0;
     do { 
-        if (n % b > 9) {
-            s[i++] = n % b - 10 + 'A';
-        }
-        else {
-            s[i++] = n % b + '0';
-        }
-    } while ((n /= b) > 0); 
-    if (sign < 0)
-        s[i++] = '-';
-    s[i] = '\0';
+        s[i++] = n % 10 + '0';
+		count++;
+	}
+	while ((n /= 10) > 0);
+	if (sign < 0){
+		s[i++] = '-';
+		count++;
+		}
+	if (lim > count){
+		s = extend(s,lim,count);
+	}
+	s[lim++] = '\0';
     reverse(s);
 }
-void main() {
-    char a[10];
-    itob(156, a, 16);
-    printf("%s\n", a);
+void main(){
+	char a[10];
+	itoa(-129,a,5);
+	printf("%s\n",a);
 }
