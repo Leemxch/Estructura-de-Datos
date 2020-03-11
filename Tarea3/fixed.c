@@ -1,8 +1,10 @@
 #include <stdio.h>
-struct _agenda{
-	char nombre[20];
-	char telefono[12];
-	struct _agenda* siguiente;
+#include <stdlib.h>
+struct _agenda {
+    int registro;
+    char nombre[20];
+    char telefono[12];
+    struct _agenda* siguiente;
 };
 struct _agenda* primero, * ultimo;
 
@@ -11,7 +13,8 @@ void mostrar_menu() {
     printf("1.- Añadir elementos\n");
     printf("2.- Borrar elementos\n");
     printf("3.- Mostrar lista\n");
-    printf("4.- Salir\n\n");
+    printf("4.- Consultar por registro\n");
+    printf("5.- Salir\n\n");
     printf("Escoge una opción: ");
     fflush(stdout);
 }
@@ -29,10 +32,10 @@ void anadir_elemento() {
         printf("\nNuevo elemento:\n");
         printf("Nombre: ");
         fflush(stdout);
-        gets(nuevo->nombre);
+        scanf(" %20[^\n]s", nuevo->nombre);
         printf("Teléfono: ");
         fflush(stdout);
-        gets(nuevo->telefono);
+        scanf(" %12[^\n]s", nuevo->telefono);
 
         /* el campo siguiente va a ser NULL por ser el último
         elemento de la lista */
@@ -46,10 +49,13 @@ void anadir_elemento() {
 
         if (primero == NULL) {
             printf("Primer elemento\n");
+            nuevo->registro = 1; /* se le asume el primer registro*/
             primero = nuevo;
             ultimo = nuevo;
         }
         else {
+            /* el registro del dato creado, usa el dato el ultimo para sumarle 1 */
+                nuevo->registro = (ultimo->registro) + 1;
             /* el hasta ahora último apuntará al nuevo */
             ultimo->siguiente = nuevo;
             /* hacemos que el nuevo sea ahora el último */
@@ -57,13 +63,33 @@ void anadir_elemento() {
         }
     }
 }
+/*void eliminar(){
+    struct _agenda auxiliar, *primero;
+    primero = *auxiliar;
+    auxiliar = auxiliar->siguiente;
+    while(auxiliar!=NULL){
+        if (encontrado==0){
+            anterior = auxiliar;
+            auxiliar = auxiliar->siguiente;
+
+    }
+    if (auxiliar == NULL){
+        if (auxiliar == *_agenda){
+            *_agenda = auxiliar->siguiente;
+        }
+        else{
+            anterior->siguiente = actual->siguiente;
+        }
+        free(auxiliar);
+    }
+}*/
 void mostrar_lista() {
     struct _agenda* auxiliar; /* para recorrer la lista */
     int i; i = 0;
     auxiliar = primero;
     printf("\nMostrando la lista completa:\n");
     while (auxiliar != NULL) {
-        printf("Nombre: %s, Telefono: %s\n", auxiliar->nombre, auxiliar->telefono);
+        printf("Registro: %d, Nombre: %s, Telefono: %s\n", auxiliar->registro, auxiliar->nombre, auxiliar->telefono);
         auxiliar = auxiliar->siguiente;
         i++;
     }
@@ -71,22 +97,46 @@ void mostrar_lista() {
         printf("\nLa lista está vacía!!\n");
     }
 }
-
-int main() {
+void consultar() {
+    int elem;
+    int i = 0;
+    struct _agenda* auxiliar;
+    printf("Digite el registro a consultar: ");
+    scanf(" %d", &elem);
+    printf("holiwis piwis");
+    printf("%d", elem);
+    printf("odio esto");
+    while (auxiliar != NULL) {
+        printf("%d", i);
+        if (auxiliar->registro == elem) {
+            printf("Registro: %d, Nombre: %s, Telefono: %s\n", auxiliar->registro, auxiliar->nombre, auxiliar->telefono);
+        }
+        auxiliar = auxiliar->siguiente;
+        i++;
+    }
+    if (i == 0) {
+        printf("No hay registros en la lista\n");
+    }
+    else {
+        printf("No se ha encontrado el registro\n");
+    }
+}
+void main() {
     char opcion;
     primero = (struct _agenda*) NULL;
     ultimo = (struct _agenda*) NULL;
     do {
         mostrar_menu();
-        opcion = getch();
+        scanf(" %c", &opcion);
         switch (opcion) {
         case '1': anadir_elemento(); break;
-        case '2': printf("No disponible todavía!\n"); break;
+        case '2': printf("aun no") /* eliminar() */ ; break;
         case '3': mostrar_lista(primero); break;
-        case '4': exit(1);
+        case '4': consultar(); break;
+        case '5': exit(1);
         default:
             printf("Opción no válida\n");
             break;
         }
-    } while (opcion != '4');
+    } while (opcion != '5');
 }
