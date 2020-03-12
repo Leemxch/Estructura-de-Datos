@@ -83,7 +83,7 @@ void main() {
         case '1': anadir_elemento(); break;
         case '2': printf("No disponible todavia!\n"); break;
         case '3': mostrar_lista(primero); break;
-		case '4': exit(1);
+	case '4': exit(1);
         default:
             printf("Opción no válida\n");
             break;
