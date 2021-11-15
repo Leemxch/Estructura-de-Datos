@@ -1,0 +1,26 @@
+Hola
+esto
+ES
+una
+PRUEBA
+0datos
+ok
+Hola
+esto
+ES
+una
+PRUEBA
+0datos
+okHola
+esto
+ES
+una
+PRUEBA
+0datos
+okHola
+esto
+ES
+una
+PRUEBA
+0datos ok revision del proyecto
+include iostream include fstream include stdlib.h include string include list include iterator include bits/stdc++.h include tablaHash.h include cola.h using namespace std
